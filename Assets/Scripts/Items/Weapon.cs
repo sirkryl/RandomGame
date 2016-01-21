@@ -5,6 +5,8 @@ public class Weapon : Equipable
 {
 	public int damage = 0;
     public float cooldown = 0.0f;
+
+    protected float currentCooldown = 0.0f;
 		// Use this for initialization
 	protected void Start ()
 	{

@@ -25,28 +25,29 @@ public class ProjectileWeapon : Weapon
         }
         else
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            GameObject bullet;
 
-            RaycastHit hit;
-            int layerMask = 1 << 8;
-            //layerMask = ~layerMask;
-            if (Physics.Raycast(ray, out hit, layerMask))
-            {
 
-                float h = hit.point.x - transform.position.x;
-                float v = hit.point.z - transform.position.z;
-                Vector3 direction = new Vector3(h, 0.0f, v);
-                direction.Normalize();
-                GameObject bullet;
+            bullet = Instantiate(projectile, transform.position + transform.forward * 0.25f, transform.rotation) as GameObject;
+            currentCooldown = cooldown;
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                float angle = Vector3.Angle(transform.forward, direction);
+            //RaycastHit hit;
+            //int layerMask = 1 << 8;
+            ////layerMask = ~layerMask;
+            //if (Physics.Raycast(ray, out hit, layerMask))
+            //{
 
-                if (h <= 0)
-                    angle = 360 - angle;
-                Quaternion rotation = Quaternion.AngleAxis(angle, transform.up);
-                bullet = Instantiate(projectile, transform.position + direction * 0.25f, rotation) as GameObject;
-                currentCooldown = cooldown;
-            }
+            //    float h = hit.point.x - transform.position.x;
+            //    float v = hit.point.z - transform.position.z;
+            //    Vector3 direction = new Vector3(h, 0.0f, v);
+            //    direction.Normalize();
+            //    GameObject bullet;
+
+              
+            //    bullet = Instantiate(projectile, transform.position + transform.forward * 0.25f, transform.rotation) as GameObject;
+            //    currentCooldown = cooldown;
+            //}
         }
     }
 
