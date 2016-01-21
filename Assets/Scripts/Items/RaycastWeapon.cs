@@ -3,9 +3,6 @@ using System.Collections;
 
 public class RaycastWeapon : Weapon
 {
-    
-
-
     // Use this for initialization
     protected void Start()
     {
