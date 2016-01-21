@@ -5,6 +5,9 @@ public class Character : MonoBehaviour, IDamageable {
 
     public int health = 100;
     private Renderer rend;
+
+    private bool currentlyFlashing = false;
+
     public bool GainHealth(int amount)
     {
         if (health < 100)
@@ -23,11 +26,13 @@ public class Character : MonoBehaviour, IDamageable {
         {
             Debug.Log("dead");
         }
-        StartCoroutine(CollideFlash());
+        if(!currentlyFlashing)
+            StartCoroutine(CollideFlash());
     }
 
     IEnumerator CollideFlash()
     {
+        currentlyFlashing = true;
         Material m = rend.material;
         Color32 c = rend.material.color;
         rend.material = null;
@@ -35,6 +40,7 @@ public class Character : MonoBehaviour, IDamageable {
         yield return new WaitForSeconds(0.1f);
         rend.material = m;
         rend.material.color = c;
+        currentlyFlashing = false;
     }
 
 	// Use this for initialization

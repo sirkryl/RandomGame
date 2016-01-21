@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("SPACE");
             weapon.HandleAttack();
         }
     }
