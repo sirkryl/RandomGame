@@ -7,7 +7,9 @@ public class Weapon : Equipable
     public float cooldown = 0.0f;
 
     protected float currentCooldown = 0.0f;
-		// Use this for initialization
+
+
+	// Use this for initialization
 	protected void Start ()
 	{
 		base.Start ();
@@ -22,6 +24,8 @@ public class Weapon : Equipable
     {
 
     }
+
+
 
 }
 

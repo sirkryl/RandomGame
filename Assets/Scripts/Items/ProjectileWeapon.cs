@@ -28,6 +28,7 @@ public class ProjectileWeapon : Weapon
             GameObject bullet;
 
             bullet = Instantiate(projectile, transform.position + transform.forward * 0.25f, transform.rotation) as GameObject;
+            bullet.GetComponent<Projectile>().owner = gameObject.GetComponent<Character>();
             currentCooldown = cooldown;
         }
     }

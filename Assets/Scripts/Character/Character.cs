@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour, IDamageable {
 
     public int health = 100;
-    private Renderer rend;
+    private Renderer renderer;
 
     private bool currentlyFlashing = false;
 
@@ -26,26 +27,23 @@ public class Character : MonoBehaviour, IDamageable {
         {
             Debug.Log("dead");
         }
-        if(!currentlyFlashing)
-            StartCoroutine(CollideFlash());
+        DamageVisible();
+        
     }
 
-    IEnumerator CollideFlash()
+    protected void DamageVisible()
     {
-        currentlyFlashing = true;
-        Material m = rend.material;
-        Color32 c = rend.material.color;
-        rend.material = null;
-        rend.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        rend.material = m;
-        rend.material.color = c;
-        currentlyFlashing = false;
+        if (!currentlyFlashing)
+        {
+            currentlyFlashing = true;
+            StartCoroutine(renderer.FlashInColor());
+            currentlyFlashing = false;
+        }
     }
 
 	// Use this for initialization
 	void Awake () {
-        rend = gameObject.GetComponent<Renderer>();
+        renderer = gameObject.GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame

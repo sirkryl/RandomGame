@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class Projectile : MonoBehaviour {
 
     public int damage = 1;
+    public Character owner;
+    private bool currentlyFlashing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +26,10 @@ public class Projectile : MonoBehaviour {
     {
         foreach (IDamageable damageable in collider.GetComponentsInChildren<IDamageable>())
         {
-            damageable.TakeDamage(damage);
+            if(damageable != owner)
+                damageable.TakeDamage(damage);
         }
     }
+
+
 }
