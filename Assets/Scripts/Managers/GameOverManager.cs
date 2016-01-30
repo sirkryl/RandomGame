@@ -5,12 +5,12 @@ public class GameOverManager : MonoBehaviour
     public PlayerHealth playerHealth;
 
 
-    //Animator anim;
+    Animator anim;
 
 
     void Awake()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -18,7 +18,7 @@ public class GameOverManager : MonoBehaviour
     {
         if (playerHealth.currentHealth <= 0)
         {
-            //  anim.SetTrigger("GameOver");
+              anim.SetTrigger("GameOver");
         }
     }
 }

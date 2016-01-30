@@ -792,7 +792,7 @@ Animator:
   m_GameObject: {fileID: 1016684960}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7ce513ddce914ed478a75f5589d5494a, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0c0525b9147a5e4fbee421a0be9b877, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28838667, g: 0.6400384, b: 0.9338235, a: 0}
+  m_Color: {r: 0.06098615, g: 0.12390524, b: 0.17647058, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
