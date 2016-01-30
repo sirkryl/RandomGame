@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -13,9 +15,14 @@ public class EnemyHealth : MonoBehaviour
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
+
+    Renderer renderer;
+    Material[] originalMaterials;
+    Material flashMaterial;
+
     bool isDead;
     bool isSinking;
-
+    bool currentlyFlashing = false;
 
     void Awake ()
     {
@@ -23,8 +30,14 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
+        renderer = GetComponentInChildren<MeshRenderer>();
 
         currentHealth = startingHealth;
+
+        originalMaterials = renderer.materials;
+
+        flashMaterial = new Material(Shader.Find("Standard"));
+        flashMaterial.color = Color.red;
     }
 
 
@@ -36,6 +49,10 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        TakeDamage(amount, transform.position);
+    }
 
     public void TakeDamage (int amount, Vector3 hitPoint)
     {
@@ -48,6 +65,9 @@ public class EnemyHealth : MonoBehaviour
             
         hitParticles.transform.position = hitPoint;
         hitParticles.Play();
+
+        if (!currentlyFlashing)
+            StartCoroutine(FlashInColor());
 
         if(currentHealth <= 0)
         {
@@ -76,5 +96,18 @@ public class EnemyHealth : MonoBehaviour
         isSinking = true;
         ScoreManager.score += scoreValue;
         Destroy (gameObject, 2f);
+    }
+
+    public IEnumerator FlashInColor()
+    {
+        currentlyFlashing = true;
+
+        renderer.material = flashMaterial;
+
+        yield return new WaitForSeconds(0.1f);
+
+        renderer.materials = originalMaterials;
+
+        currentlyFlashing = false;
     }
 }
