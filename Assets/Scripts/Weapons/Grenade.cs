@@ -8,6 +8,9 @@ public class Grenade : Projectile
     public float radius = 5.0f;
     public float speed = 3.0f;
     bool exploding = false;
+    public float explosionDelay = 2.0f;
+
+    float timer = 0.0f;
 
     protected void Awake()
     {
@@ -16,9 +19,10 @@ public class Grenade : Projectile
 
     protected override void Update()
     {
+        timer += Time.deltaTime;
         transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * speed);
 
-        if(Vector3.Distance(transform.position, target) < 0.1f && !exploding)
+        if(timer >= explosionDelay)
         {
             exploding = true;
             Explode();
