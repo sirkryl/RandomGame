@@ -22,7 +22,7 @@ public class Grenade : Projectile
         timer += Time.deltaTime;
         transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * speed);
 
-        if(timer >= explosionDelay)
+        if(timer >= explosionDelay && !exploding)
         {
             exploding = true;
             Explode();
