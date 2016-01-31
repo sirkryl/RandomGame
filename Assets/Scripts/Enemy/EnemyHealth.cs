@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
-        renderer = GetComponentInChildren<MeshRenderer>();
+        renderer = GetComponentInChildren<Renderer>();
 
         currentHealth = startingHealth;
 
