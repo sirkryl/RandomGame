@@ -4,14 +4,14 @@ using System.Collections;
 
 public class ShowFPS : MonoBehaviour {
 	public  float updateInterval = 0.5F;
-	Text guiText;	
+	Text fpsText;	
 	private float accum   = 0; // FPS accumulated over the interval
 	private int   frames  = 0; // Frames drawn over the interval
 	private float timeleft; // Left time for current interval
 	
     void Awake()
     {
-        guiText = GetComponent<Text>();
+        fpsText = GetComponent<Text>();
         timeleft = updateInterval;  
     }
 	
@@ -27,7 +27,7 @@ public class ShowFPS : MonoBehaviour {
 			// display two fractional digits (f2 format)
 			float fps = accum/frames;
 			string format = System.String.Format("FPS: {0:F2}",fps);
-			guiText.text = format;
+			fpsText.text = format;
 			timeleft = updateInterval;
 			accum = 0.0F;
 			frames = 0;

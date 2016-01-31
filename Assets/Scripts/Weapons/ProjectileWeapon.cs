@@ -7,7 +7,7 @@ public class ProjectileWeapon : Weapon
     public Projectile projectile;
 
     // Use this for initialization
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

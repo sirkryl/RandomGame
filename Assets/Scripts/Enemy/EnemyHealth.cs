@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
 
-    Renderer renderer;
+    Renderer rend;
     Material[] originalMaterials;
     Material flashMaterial;
 
@@ -30,11 +30,11 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
-        renderer = GetComponentInChildren<Renderer>();
+        rend = GetComponentInChildren<Renderer>();
 
         currentHealth = startingHealth;
 
-        originalMaterials = renderer.materials;
+        originalMaterials = rend.materials;
 
         flashMaterial = new Material(Shader.Find("Standard"));
         flashMaterial.color = Color.red;
@@ -102,11 +102,11 @@ public class EnemyHealth : MonoBehaviour
     {
         currentlyFlashing = true;
 
-        renderer.material = flashMaterial;
+        rend.material = flashMaterial;
 
         yield return new WaitForSeconds(0.1f);
 
-        renderer.materials = originalMaterials;
+        rend.materials = originalMaterials;
 
         currentlyFlashing = false;
     }
