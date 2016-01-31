@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public AudioClip deathClip;
 
 
-    //Animator anim;
+    Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake ()
     {
-        //anim = GetComponent <Animator> ();
+        anim = GetComponentInChildren <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();

@@ -4,10 +4,12 @@ public class PlayerShooting : MonoBehaviour
 {
 
     Weapon weapon;
+    PlayerMovement movement;
 
     void Awake ()
     {
         weapon = GetComponentInChildren<Weapon>();
+        movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
 
@@ -15,7 +17,8 @@ public class PlayerShooting : MonoBehaviour
     {
 		if(Input.GetButton ("Fire1"))
         {
-            weapon.Shoot ();
+            if (movement.FloorHitPoint != Vector3.zero)
+                weapon.Shoot (movement.FloorHitPoint);
         }
 
         

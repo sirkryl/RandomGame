@@ -4,33 +4,19 @@ using System.Collections.Generic;
 public class Projectile : MonoBehaviour {
 
     public int damage = 1;
+    public Vector3 target;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
-	void Update () {
-        transform.position = transform.position + transform.forward.normalized * 0.25f;
+	protected virtual void Update () {
 	}
 
-    void OnBecameInvisible()
+    protected virtual void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider collider)
-    {
-        if(collider.tag == "Enemy")
-        {
-            EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-            }
-        }
-    }
+    
 
 
 }

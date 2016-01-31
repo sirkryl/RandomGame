@@ -10,6 +10,12 @@ public class PlayerMovement : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
+    Vector3 _floorHitPoint = Vector3.zero;
+    public Vector3 FloorHitPoint
+    {
+        get { return _floorHitPoint; }
+    }
+
     void Awake()
     {
         floorMask = LayerMask.GetMask("Floor");
@@ -43,12 +49,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
         {
+            _floorHitPoint = floorHit.point;
             Vector3 playerToMouse = floorHit.point - transform.position;
             playerToMouse.y = 0f;
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
         }
+        else
+            _floorHitPoint = Vector3.zero;
+
     }
 
     void Animating(float h, float v)

@@ -30,9 +30,9 @@ public class LaserWeapon : Weapon
         }
     }
 
-    public override void Shoot()
+    public override void Shoot(Vector3 target)
     {
-        base.Shoot();
+        base.Shoot(target);
 
         if (timer >= timeBetweenBullets && Time.timeScale != 0)
         {

@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ProjectileWeapon : Weapon
 {
-    protected GameObject projectile;
+    public Projectile projectile;
 
     // Use this for initialization
     protected void Awake()
     {
-
         base.Awake();
 
-        projectile = Resources.Load("Bullet") as GameObject;
+
+        //projectile = Resources.Load("Bullet") as GameObject;
 
     }
 
@@ -20,9 +21,9 @@ public class ProjectileWeapon : Weapon
         base.Update();
     }
 
-    public override void Shoot()
+    public override void Shoot(Vector3 target)
     {
-        base.Shoot();
+        base.Shoot(target);
 
         if (timer >= timeBetweenBullets && Time.timeScale != 0)
         {
@@ -30,9 +31,10 @@ public class ProjectileWeapon : Weapon
 
             gunAudio.Play();
 
-            GameObject bullet;
+            Projectile bullet;
 
-            bullet = Instantiate(projectile, transform.position + transform.forward * 0.25f, transform.rotation) as GameObject;
+            bullet = Instantiate(projectile, transform.position + transform.forward * 0.25f, transform.rotation) as Projectile;
+            bullet.target = target;
         }
     }
 }
