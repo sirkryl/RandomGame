@@ -1,57 +1,49 @@
 fileFormatVersion: 2
-guid: 9afec0ccf6cb672488f4a790bb3fc104
-timeCreated: 1454181799
+guid: 382d673ac11a2434983183fc8b299549
+timeCreated: 1454197067
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: pCube1
-    100002: pCube2
-    100004: pCube3
-    100006: pCube4
-    100008: pCube5
-    100010: pCylinder1
-    100012: pCylinder2
-    100014: //RootNode
-    100016: pSphere1
-    100018: pSphere2
-    100020: pSphere3
-    100022: transform1
-    100024: transform2
-    100026: transform3
-    100028: transform4
-    100030: transform5
-    400000: pCube1
-    400002: pCube2
-    400004: pCube3
-    400006: pCube4
-    400008: pCube5
-    400010: pCylinder1
-    400012: pCylinder2
-    400014: //RootNode
-    400016: pSphere1
-    400018: pSphere2
-    400020: pSphere3
-    400022: transform1
-    400024: transform2
-    400026: transform3
-    400028: transform4
-    400030: transform5
-    2300000: pCube5
-    2300002: pCylinder1
-    2300004: pSphere1
-    2300006: pSphere2
-    2300008: pSphere3
-    3300000: pCube5
-    3300002: pCylinder1
-    3300004: pSphere1
-    3300006: pSphere2
-    3300008: pSphere3
+    100000: //RootNode
+    100002: pCylinder1
+    100004: place3dTexture1
+    100006: pPyramid1
+    100008: pPyramid2
+    100010: pPyramid3
+    100012: pPyramid4
+    100014: pSphere1
+    100016: pSphere2
+    400000: //RootNode
+    400002: pCylinder1
+    400004: place3dTexture1
+    400006: pPyramid1
+    400008: pPyramid2
+    400010: pPyramid3
+    400012: pPyramid4
+    400014: pSphere1
+    400016: pSphere2
+    2300000: pCylinder1
+    2300002: pPyramid1
+    2300004: pPyramid2
+    2300006: pPyramid3
+    2300008: pPyramid4
+    2300010: pSphere1
+    2300012: pSphere2
+    3300000: pCylinder1
+    3300002: pPyramid1
+    3300004: pPyramid2
+    3300006: pPyramid3
+    3300008: pPyramid4
+    3300010: pSphere1
+    3300012: pSphere2
     4300000: pSphere1
     4300002: pCylinder1
-    4300004: pSphere2
-    4300006: pSphere3
-    4300008: pCube5
+    4300004: pPyramid1
+    4300006: pPyramid2
+    4300008: pPyramid3
+    4300010: pPyramid4
+    4300012: pSphere2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -96,7 +88,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
